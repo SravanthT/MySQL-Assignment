@@ -1,0 +1,50 @@
+****************************************
+Below code will create a schema with name Assignment in which we have to create 3 tables
+(1.Customers   2. Orders   3.Salespeople)
+****************************************
+
+create schema AssignmentOne;
+
+*****************************************
+Below code will create new table with name salespeople in which contains (Snum,Sname,City & Comm) fields. 
+Constraints:
+Snum will contain only numbers and is primary key for table.
+Sname should be Unique.
+******************************************
+
+create table assignmentone.salesPeople (
+Snum int not null unique,
+primary key (Snum),
+Sname varchar(100),
+City varchar(50),
+Comm int
+);
+
+*******************************************
+
+Below code for inserting Only one value into table.
+(you can also use "assignmentone.salespeople" in place of "SalesPeople" as both represent same table)
+
+******************************************
+
+insert into SalesPeople 
+ values(1001,"Peel","London",12);
+
+***************************
+Below code for inserting many values into table.
+***************************
+
+  insert into SalesPeople
+ values(1002,"Serres","Sanjose",13),(1004,"Motika","London",11),(1007,"Rifkin","Barcelona",15),(1003,"Axelrod","Newyork",10);
+
+******************
+To read the table use this code
+****************
+select * from {tablename};
+
+**************
+To read specific field from table use
+
+Select {fieldnames},{another fieldname},{you can give any number of fields} from {Here you need to enter table name};
+
+********************
