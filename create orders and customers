@@ -1,0 +1,52 @@
+create table Customers(
+Cnum int,
+Cname varchar(100),
+City varchar(50) not null,
+Snum int,
+primary key(Cnum),
+foreign key (Snum) references SalesPeople(Snum)
+);
+
+
+insert into Customers
+values(2001,"Hoffman","London", 1001);
+insert into customers (Cnum,Cname,City,Snum)
+values
+(2002 ,"Giovanni", "Rome", 1003),
+(2003, "Liu", "Sanjose", 1002),
+(2004,"Grass","Berlin",1002),
+(2006,"Clemens","London", 1001),
+(2008,"Cisneros", "Sanjose", 1007),
+(2007 ,"Pereira", "Rome", 1004);
+
+
+select*from customers;
+
+create table orders(
+Onum int,
+Amt float,
+Odate date not null,
+Cnum int,
+Snum int,
+primary key(Onum),
+foreign key(Snum) references salespeople(Snum),
+foreign key(Cnum) references customers(Cnum)
+);
+
+
+insert into orders
+values
+(3001, 18.69, 19901003, 2008, 1007);
+insert into orders (Onum,Amt,Odate,Cnum,Snum)
+values
+(3003, 767.19, 19901003, 2001, 1001),
+(3002, 1900.10, 19901003, 2007, 1004),
+(3005,  5160.45, 19901003, 2003, 1002),
+(3006,  1098.16, 19901003, 2008, 1007),
+(3009, 1713.23, 19901004, 2002, 1003),
+(3007,  75.75, 19901004, 2004, 1002),
+(3008,  4273.00, 19901005, 2006, 1001),
+(3010,  1309.95, 19901006, 2004, 1002),
+(3011,  9891.88, 19901006, 2006, 1001);
+
+select * from orders;
