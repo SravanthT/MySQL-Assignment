@@ -1,0 +1,55 @@
+Q1) Count the number of Salesperson whose name begin with ‘a’/’A’.
+
+ Ans:      select count(Sname) from salespeople where Sname like "a%" or "A%";
+
+Syntax to count;
+SELECT Count({ColumnOne})
+FROM {TableName}
+WHERE condition1 AND condition2 AND condition3 ...;
+
+Like operator can be used to search for patterns. It supports two wildcards - 
+(  % - It represents zero, one or more characters. )
+(  _ - It represents a single character.)
+Here we are asked to count all sales persons names starting with a we will use "a%" in condition
+
+**************************
+
+Q2) Display all the Salesperson whose all orders worth is more than Rs. 2000.
+
+Ans:      select sum(orders.Amt),salespeople.Sname 
+          from orders
+          right join salespeople
+          on orders.Snum = salespeople.Snum 
+          where orders.Amt > 2000 group by Sname ;
+
+Syntax for sum;
+SELECT Sum({ColumnName})
+FROM {TableName}
+WHERE condition1 AND condition2 AND condition3 ...;
+
+Syntax fot making joins:
+
+After selecting columns to be displayed
+................
+LEFT JOIN table2
+ON table1.matching_column = table2.matching_column
+WHERE CONDITIONS if any;
+.................
+in last group by command is used to group all the results with same name/grade into one columns only in this way we don't get duplicate result with same  name/grade
+
+************************************
+
+Q3) Count the number of Salesperson belonging to Newyork.
+
+Ans:      select count(city) from salespeople where city = "Newyork";
+
+Q4) Display the number of Salespeople belonging to London and belonging to Paris.
+
+Ans:      select salespeople.Sname, salespeople.city from salespeople where city like "London" or "Paris";
+
+
+Q5) Display the number of orders taken by each Salesperson and their date of orders.
+
+Ans:      select  orders.Odate,salespeople.Sname,count(*) from orders 
+          left join salespeople on orders.Snum = salespeople.Snum 
+          group by salespeople.Sname,orders.Odate;
